@@ -34,8 +34,9 @@ cp .env.example .env            # defaults work locally as-is
 - API base: `http://127.0.0.1:8000/api/v1/` — schema at `/api/schema/`,
   Swagger UI at `/api/docs/`, admin at `/admin/`.
 - Dev staff login (created by the seed, only while `DEBUG=True`):
-  `manager` / `maison-admin-dev`. The staff API uses JWT:
-  `POST /api/v1/auth/token/`.
+  username `manager`; the password comes from the `MAISON_DEV_STAFF_PASSWORD`
+  environment variable (if unset, the seed prints a generated one-off
+  password once). The staff API uses JWT: `POST /api/v1/auth/token/`.
 - Database: `DATABASE_URL` decides. Local default is SQLite;
   production sets e.g. `DATABASE_URL=postgresql://user:pass@host/db`.
   The same migrations run on both.
